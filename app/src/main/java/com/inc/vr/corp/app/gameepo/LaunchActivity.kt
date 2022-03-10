@@ -15,12 +15,12 @@ class LaunchActivity : AppCompatActivity() {
         setContentView(R.layout.activity_launch)
         val actionBar = supportActionBar
         actionBar!!.hide()
-        myshared = getSharedPreferences("Krisis-Energi", MODE_PRIVATE)
+        myshared = getSharedPreferences("Game_Epo", MODE_PRIVATE)
          status = myshared.getString("status","logout")
         val handler = Handler()
         handler.postDelayed({
             if (status == "login") {
-                intent = Intent(applicationContext, MainActivity::class.java)
+                intent = Intent(applicationContext, MenuActivity::class.java)
                 finish()
                 startActivity(intent)
             } else {

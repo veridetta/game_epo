@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.cardview.widget.CardView
+import kotlinx.android.synthetic.main.activity_login.*
 
-lateinit var btn_simpan : CardView
-lateinit var nama : TextView
-lateinit var sekolah : TextView
-lateinit var kelas : TextView
+
 lateinit var editormyshared: SharedPreferences.Editor
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,12 +17,12 @@ class LoginActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
 
-        btn_simpan.setOnClickListener { view ->
-            if ((nama.text.length > 0)  and (sekolah.text.length > 0) and (
-                        kelas.text.length > 0)
+        simpan.setOnClickListener { view ->
+            if ((nama.text!!.length > 0)  and (sekolah.text!!.length > 0) and (
+                        kelas.text!!.length > 0)
             ) {
                 editormyshared = getSharedPreferences(
-                    "Krisis-Energi",
+                    "Game_Epo",
                     MODE_PRIVATE
                 ).edit()
                 editormyshared.putString("nama", nama.text.toString())
@@ -33,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
                 editormyshared.putString("kelas", kelas.text.toString())
                 editormyshared.putString("status", "login")
                 editormyshared.apply()
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                val intent = Intent(this@LoginActivity, MenuActivity::class.java)
                 intent.putExtra("jenis", "pg")
                 startActivity(intent)
             } else {
