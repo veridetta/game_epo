@@ -16,6 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_35sdp">
             <androidx.cardview.widget.CardView
+                android:id="@+id/card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardUseCompatPadding="true"
@@ -29,15 +30,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/_16sdp">
+                    android:padding="@dimen/_6sdp">
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_70sdp"/>
                     <ImageView
+                        android:id="@+id/img_soal"
                         android:layout_gravity="center"
                         android:layout_width="@dimen/_180sdp"
-                        android:layout_height="@dimen/_180sdp"
-                        android:background="@drawable/bg_indo"/>
+                        android:layout_height="@dimen/_180sdp" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -56,6 +57,7 @@
                         android:orientation="vertical">
                         <LinearLayout
                             android:id="@+id/opsi_a"
+                            android:tag="A"
                             android:layout_width="match_parent"
                             android:background="@drawable/rounded"
                             android:layout_height="wrap_content"
@@ -66,7 +68,7 @@
                                 android:id="@+id/img_opsi_a"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="@dimen/_80sdp"
-                                android:background="@drawable/school"/>
+                                />
                             <TextView
                                 android:id="@+id/txt_opsi_a"
                                 android:layout_marginLeft="@dimen/_6sdp"
@@ -79,6 +81,7 @@
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/opsi_b"
+                            android:tag="B"
                             android:layout_width="match_parent"
                             android:background="@drawable/rounded"
                             android:layout_height="wrap_content"
@@ -89,7 +92,7 @@
                                 android:id="@+id/img_opsi_b"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="@dimen/_80sdp"
-                                android:background="@drawable/school"/>
+                                />
                             <TextView
                                 android:id="@+id/txt_opsi_b"
                                 android:layout_marginLeft="@dimen/_6sdp"
@@ -102,6 +105,7 @@
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/opsi_c"
+                            android:tag="C"
                             android:layout_width="match_parent"
                             android:background="@drawable/rounded"
                             android:layout_height="wrap_content"
@@ -112,7 +116,7 @@
                                 android:id="@+id/img_opsi_c"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="@dimen/_80sdp"
-                                android:background="@drawable/school"/>
+                                />
                             <TextView
                                 android:id="@+id/txt_opsi_c"
                                 android:layout_marginLeft="@dimen/_6sdp"
@@ -125,6 +129,7 @@
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/opsi_d"
+                            android:tag="D"
                             android:layout_width="match_parent"
                             android:background="@drawable/rounded"
                             android:layout_height="wrap_content"
@@ -135,7 +140,7 @@
                                 android:id="@+id/img_opsi_d"
                                 android:layout_width="@dimen/_80sdp"
                                 android:layout_height="@dimen/_80sdp"
-                                android:background="@drawable/school"/>
+                                />
                             <TextView
                                 android:id="@+id/txt_opsi_d"
                                 android:layout_marginLeft="@dimen/_6sdp"
@@ -147,6 +152,7 @@
                                 android:text="Jawaban ini betul"/>
                         </LinearLayout>
                     </LinearLayout>
+                    <!--
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -172,7 +178,7 @@
                                 android:textColor="@color/white"
                                 android:text="Berikutnya"/>
                         </LinearLayout>
-                    </LinearLayout>
+                    </LinearLayout> -->
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
