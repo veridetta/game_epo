@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.inc.vr.corp.app.gameepo.adapter.SoalAdapter
-import com.inc.vr.corp.app.gameepo.adapter.betul
 import com.inc.vr.corp.app.gameepo.api.RestApiService
 import com.inc.vr.corp.app.gameepo.api.ServiceBuilder
 import com.inc.vr.corp.app.gameepo.api.SoalApi
@@ -37,12 +36,14 @@ class MainActivity : AppCompatActivity() {
         fab_selesai.setOnClickListener {
 
             myshared = getSharedPreferences("Game_Epo", MODE_PRIVATE)
-            betul = myshared.getInt("betul",0)
+            var betul = myshared.getInt("betul",0)
             var nilai = (betul*10)/total
             editormyshared =getSharedPreferences(
                 "Game_Epo",
                 MODE_PRIVATE
             ).edit()
+            editormyshared.remove("total")
+            editormyshared.apply()
             editormyshared.putInt("total", total)
             editormyshared.putInt("nilai", nilai)
             editormyshared.apply()

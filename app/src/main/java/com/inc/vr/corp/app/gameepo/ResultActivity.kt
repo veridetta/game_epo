@@ -2,6 +2,7 @@ package com.inc.vr.corp.app.gameepo
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,9 @@ class ResultActivity : AppCompatActivity() {
         var total = myshared.getInt("total", 0)
         var nilai = myshared.getInt("nilai", 90)
         donut_progress.max = 100
+        val komplit : MediaPlayer = MediaPlayer.create(this, R.raw.complete)
+        komplit!!.isLooping = false
+        komplit.start()
         var timer: Timer
         timer = Timer()
         var c = 0
