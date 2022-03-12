@@ -20,10 +20,11 @@ import kotlinx.android.synthetic.main.rc_soal.view.*
 
 
 private var context: Context? = null
-
+var betul : Int = 0
 class SoalAdapter(private val heroes: List<SoalInfo>) : RecyclerView.Adapter<SoalHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): SoalHolder {
         context = viewGroup.getContext();
+        betul = 0
         return SoalHolder(
             LayoutInflater.from(viewGroup.context).inflate(
                 R.layout.rc_soal,
@@ -69,7 +70,6 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
         txt_opsi_b.text = buku.b
         txt_opsi_c.text = buku.c
         txt_opsi_d.text = buku.d
-        var betul : Int = 0
         card.setOnClickListener {
             //val intent = Intent(context, MenuActivity::class.java)
             //intent.putExtra("id", buku.id.toString())
