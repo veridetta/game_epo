@@ -1,5 +1,6 @@
 package com.inc.vr.corp.app.gameepo
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
@@ -34,15 +35,20 @@ class MainActivity : AppCompatActivity() {
         getFood(id, "cat_id")
         fab_selesai.hide()
         fab_selesai.setOnClickListener {
-            editormyshared =getSharedPreferences(
-                    "Game_Epo",
-                    MODE_PRIVATE
-            ).edit()
-            editormyshared.putInt("total", total)
-            editormyshared.apply()
+
             myshared = getSharedPreferences("Game_Epo", MODE_PRIVATE)
             betul = myshared.getInt("betul",0)
-            Toast.makeText(this,"Betul "+betul+" dari total"+total,Toast.LENGTH_LONG).show()
+            var nilai = (betul*10)/total
+            editormyshared =getSharedPreferences(
+                "Game_Epo",
+                MODE_PRIVATE
+            ).edit()
+            editormyshared.putInt("total", total)
+            editormyshared.putInt("nilai", nilai)
+            editormyshared.apply()
+            //Toast.makeText(this,"Betul "+betul+" dari total"+total,Toast.LENGTH_LONG).show()
+            val intent = Intent(this@MainActivity, ResultActivity::class.java)
+            startActivity(intent)
         }
     }
     fun getFood(title: Int, author: String) {

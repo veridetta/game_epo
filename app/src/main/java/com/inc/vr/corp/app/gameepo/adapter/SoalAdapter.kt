@@ -2,9 +2,10 @@ package com.inc.vr.corp.app.gameepo.adapter
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE
-import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
+import android.media.MediaPlayer
+import android.util.Log.v
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,12 +13,12 @@ import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.inc.vr.corp.app.gameepo.MenuActivity
 import com.inc.vr.corp.app.gameepo.R
-import com.inc.vr.corp.app.gameepo.SelesaiClick
 import com.inc.vr.corp.app.gameepo.model.SoalInfo
 import kotlinx.android.synthetic.main.rc_cat.view.*
 import kotlinx.android.synthetic.main.rc_soal.view.*
+
+
 private var context: Context? = null
 var betul : Int = 0
 
@@ -25,11 +26,11 @@ class SoalAdapter(private val heroes: List<SoalInfo>) : RecyclerView.Adapter<Soa
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): SoalHolder {
         context = viewGroup.getContext();
         return SoalHolder(
-                LayoutInflater.from(viewGroup.context).inflate(
-                        R.layout.rc_soal,
-                        viewGroup,
-                        false
-                )
+            LayoutInflater.from(viewGroup.context).inflate(
+                R.layout.rc_soal,
+                viewGroup,
+                false
+            )
         )
     }
     override fun getItemCount(): Int = heroes.size
@@ -74,22 +75,28 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             //intent.putExtra("id", buku.id.toString())
            // context?.startActivity(intent)
         }
+        val benar : MediaPlayer = MediaPlayer.create(context, R.raw.benar)
+        benar!!.isLooping = false
+        val salah : MediaPlayer = MediaPlayer.create(context, R.raw.salah)
+        salah!!.isLooping = false
         opsi_a.setOnClickListener(View.OnClickListener { v ->
-            if (buku.kunci!!.equals(v.getTag())){
+            if (buku.kunci!!.equals(v.getTag())) {
                 opsi_a.setBackgroundColor(Color.GREEN)
                 betul++
                 klik++
-                val editormyshared : SharedPreferences.Editor = context!!.getSharedPreferences(
-                        "Game_Epo",
-                        MODE_PRIVATE
+                benar.start()
+                val editormyshared: SharedPreferences.Editor = context!!.getSharedPreferences(
+                    "Game_Epo",
+                    MODE_PRIVATE
                 ).edit()
                 editormyshared.putInt("betul", betul)
                 editormyshared.apply()
-            }else{
+            } else {
                 opsi_a.setBackgroundColor(Color.RED)
                 kunci(opsi_b, buku.kunci!!)
                 kunci(opsi_c, buku.kunci!!)
                 kunci(opsi_d, buku.kunci!!)
+                salah.start()
             }
             opsi_a.isEnabled = false
             opsi_a.isClickable = false
@@ -101,21 +108,23 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_d.isClickable = false
         })
         opsi_b.setOnClickListener(View.OnClickListener { v ->
-            if (buku.kunci!!.equals(v.getTag())){
+            if (buku.kunci!!.equals(v.getTag())) {
                 opsi_b.setBackgroundColor(Color.GREEN)
                 betul++
                 klik++
-                val editormyshared : SharedPreferences.Editor = context!!.getSharedPreferences(
-                        "Game_Epo",
-                        MODE_PRIVATE
+                benar.start()
+                val editormyshared: SharedPreferences.Editor = context!!.getSharedPreferences(
+                    "Game_Epo",
+                    MODE_PRIVATE
                 ).edit()
                 editormyshared.putInt("betul", betul)
                 editormyshared.apply()
-            }else{
+            } else {
                 opsi_b.setBackgroundColor(Color.RED)
                 kunci(opsi_a, buku.kunci!!)
                 kunci(opsi_c, buku.kunci!!)
                 kunci(opsi_d, buku.kunci!!)
+                salah.start()
             }
             opsi_a.isEnabled = false
             opsi_a.isClickable = false
@@ -127,21 +136,23 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_d.isClickable = false
         })
         opsi_c.setOnClickListener(View.OnClickListener { v ->
-            if (buku.kunci!!.equals(v.getTag())){
+            if (buku.kunci!!.equals(v.getTag())) {
                 opsi_c.setBackgroundColor(Color.GREEN)
                 betul++
                 klik++
-                val editormyshared : SharedPreferences.Editor = context!!.getSharedPreferences(
-                        "Game_Epo",
-                        MODE_PRIVATE
+                benar.start()
+                val editormyshared: SharedPreferences.Editor = context!!.getSharedPreferences(
+                    "Game_Epo",
+                    MODE_PRIVATE
                 ).edit()
                 editormyshared.putInt("betul", betul)
                 editormyshared.apply()
-            }else{
+            } else {
                 opsi_c.setBackgroundColor(Color.RED)
                 kunci(opsi_b, buku.kunci!!)
                 kunci(opsi_a, buku.kunci!!)
                 kunci(opsi_d, buku.kunci!!)
+                salah.start()
             }
             opsi_a.isEnabled = false
             opsi_a.isClickable = false
@@ -153,21 +164,23 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_d.isClickable = false
         })
         opsi_d.setOnClickListener(View.OnClickListener { v ->
-            if (buku.kunci!!.equals(v.getTag())){
+            if (buku.kunci!!.equals(v.getTag())) {
                 opsi_d.setBackgroundColor(Color.GREEN)
                 betul++
                 klik++
-                val editormyshared : SharedPreferences.Editor = context!!.getSharedPreferences(
-                        "Game_Epo",
-                        MODE_PRIVATE
+                benar.start()
+                val editormyshared: SharedPreferences.Editor = context!!.getSharedPreferences(
+                    "Game_Epo",
+                    MODE_PRIVATE
                 ).edit()
                 editormyshared.putInt("betul", betul)
                 editormyshared.apply()
-            }else{
+            } else {
                 opsi_a.setBackgroundColor(Color.RED)
                 kunci(opsi_b, buku.kunci!!)
                 kunci(opsi_c, buku.kunci!!)
                 kunci(opsi_a, buku.kunci!!)
+                salah.start()
             }
             opsi_a.isEnabled = false
             opsi_a.isClickable = false
@@ -179,7 +192,7 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_d.isClickable = false
         })
     }
-    fun kunci(opsi : LinearLayout,kunci_jawaban : String){
+    fun kunci(opsi: LinearLayout, kunci_jawaban: String){
         if(opsi.getTag().equals(kunci_jawaban)){
             opsi.setBackgroundColor(Color.GREEN)
         }
