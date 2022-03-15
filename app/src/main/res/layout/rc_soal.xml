@@ -50,6 +50,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/_9sdp"
+                        android:textColor="@color/black"
                         android:text="Gambar apa di atas?"/>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -76,6 +77,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textColor="@color/black"
                                 android:minLines="2"
                                 android:text="Jawaban ini betul"/>
                         </LinearLayout>
@@ -99,6 +101,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
+                                android:textColor="@color/black"
                                 android:gravity="center"
                                 android:minLines="2"
                                 android:text="Jawaban ini betul"/>
@@ -125,8 +128,10 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:minLines="2"
+                                android:textColor="@color/black"
                                 android:text="Jawaban ini betul"/>
                         </LinearLayout>
+                        <!--
                         <LinearLayout
                             android:id="@+id/opsi_d"
                             android:tag="D"
@@ -148,9 +153,11 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textColor="@color/black"
                                 android:minLines="2"
                                 android:text="Jawaban ini betul"/>
                         </LinearLayout>
+                        -->
                     </LinearLayout>
                     <!--
                     <LinearLayout

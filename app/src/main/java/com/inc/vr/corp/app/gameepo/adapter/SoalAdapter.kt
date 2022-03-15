@@ -43,17 +43,17 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
     private val img_opsi_a = view.img_opsi_a
     private val img_opsi_b = view.img_opsi_b
     private val img_opsi_c = view.img_opsi_c
-    private val img_opsi_d = view.img_opsi_d
+    //private val img_opsi_d = view.img_opsi_d
     private val card = view.card
     private val soal = view.tanya_isi
     private val opsi_a = view.opsi_a
     private val opsi_b = view.opsi_b
     private val opsi_c = view.opsi_c
-    private val opsi_d = view.opsi_d
+    //private val opsi_d = view.opsi_d
     private val txt_opsi_a = view.txt_opsi_a
     private val txt_opsi_b = view.txt_opsi_b
     private val txt_opsi_c = view.txt_opsi_c
-    private val txt_opsi_d = view.txt_opsi_d
+    //private val txt_opsi_d = view.txt_opsi_d
     fun bindOrder(buku: SoalInfo) {
         var klik : Int=0
         val options: RequestOptions = RequestOptions()
@@ -64,12 +64,12 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
         Glide.with(context).load(buku.a_gambar).apply(options).into(img_opsi_a)
         Glide.with(context).load(buku.b_gambar).apply(options).into(img_opsi_b)
         Glide.with(context).load(buku.c_gambar).apply(options).into(img_opsi_c)
-        Glide.with(context).load(buku.d_gambar).apply(options).into(img_opsi_d)
+        //Glide.with(context).load(buku.d_gambar).apply(options).into(img_opsi_d)
         soal.text = buku.soal
         txt_opsi_a.text = buku.a
         txt_opsi_b.text = buku.b
         txt_opsi_c.text = buku.c
-        txt_opsi_d.text = buku.d
+        //txt_opsi_d.text = buku.d
         card.setOnClickListener {
             //val intent = Intent(context, MenuActivity::class.java)
             //intent.putExtra("id", buku.id.toString())
@@ -101,7 +101,7 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
                 opsi_a.setBackgroundColor(Color.RED)
                 kunci(opsi_b, buku.kunci!!)
                 kunci(opsi_c, buku.kunci!!)
-                kunci(opsi_d, buku.kunci!!)
+          //      kunci(opsi_d, buku.kunci!!)
                 salah.start()
             }
             opsi_a.isEnabled = false
@@ -110,8 +110,8 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_b.isClickable = false
             opsi_c.isEnabled = false
             opsi_c.isClickable = false
-            opsi_d.isEnabled = false
-            opsi_d.isClickable = false
+            //opsi_d.isEnabled = false
+            //opsi_d.isClickable = false
         })
         opsi_b.setOnClickListener(View.OnClickListener { v ->
             if (buku.kunci!!.equals(v.getTag())) {
@@ -129,7 +129,7 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
                 opsi_b.setBackgroundColor(Color.RED)
                 kunci(opsi_a, buku.kunci!!)
                 kunci(opsi_c, buku.kunci!!)
-                kunci(opsi_d, buku.kunci!!)
+              //  kunci(opsi_d, buku.kunci!!)
                 salah.start()
             }
             opsi_a.isEnabled = false
@@ -138,8 +138,8 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_b.isClickable = false
             opsi_c.isEnabled = false
             opsi_c.isClickable = false
-            opsi_d.isEnabled = false
-            opsi_d.isClickable = false
+            //opsi_d.isEnabled = false
+            //opsi_d.isClickable = false
         })
         opsi_c.setOnClickListener(View.OnClickListener { v ->
             if (buku.kunci!!.equals(v.getTag())) {
@@ -157,7 +157,7 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
                 opsi_c.setBackgroundColor(Color.RED)
                 kunci(opsi_b, buku.kunci!!)
                 kunci(opsi_a, buku.kunci!!)
-                kunci(opsi_d, buku.kunci!!)
+              //  kunci(opsi_d, buku.kunci!!)
                 salah.start()
             }
             opsi_a.isEnabled = false
@@ -166,10 +166,10 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_b.isClickable = false
             opsi_c.isEnabled = false
             opsi_c.isClickable = false
-            opsi_d.isEnabled = false
-            opsi_d.isClickable = false
+            //opsi_d.isEnabled = false
+            //opsi_d.isClickable = false
         })
-        opsi_d.setOnClickListener(View.OnClickListener { v ->
+        /*opsi_d.setOnClickListener(View.OnClickListener { v ->
             if (buku.kunci!!.equals(v.getTag())) {
                 opsi_d.setBackgroundColor(Color.GREEN)
                 betul++
@@ -196,7 +196,7 @@ class SoalHolder(view: View) : RecyclerView.ViewHolder(view) {
             opsi_c.isClickable = false
             opsi_d.isEnabled = false
             opsi_d.isClickable = false
-        })
+        })*/
     }
     fun kunci(opsi: LinearLayout, kunci_jawaban: String){
         if(opsi.getTag().equals(kunci_jawaban)){
