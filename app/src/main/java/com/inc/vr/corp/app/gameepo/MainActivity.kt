@@ -3,18 +3,15 @@ package com.inc.vr.corp.app.gameepo
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.inc.vr.corp.app.gameepo.adapter.SoalAdapter
-import com.inc.vr.corp.app.gameepo.api.RestApiService
 import com.inc.vr.corp.app.gameepo.api.ServiceBuilder
 import com.inc.vr.corp.app.gameepo.api.SoalApi
 import com.inc.vr.corp.app.gameepo.model.SoalInfo
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_menu.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         fab_selesai.setOnClickListener {
 
             myshared = getSharedPreferences("Game_Epo", MODE_PRIVATE)
-            var betul = myshared.getInt("betul",0)
-            var nilai = (betul*10)/total
+            val betul = myshared.getInt("betul",0)
+            val nilai = (betul*10)/total
             editormyshared =getSharedPreferences(
                 "Game_Epo",
                 MODE_PRIVATE
@@ -52,8 +49,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-    fun getFood(title: Int, author: String) {
-        val apiService= RestApiService()
+    private fun getFood(title: Int, author: String) {
         val bukuInfo = SoalInfo(
                 id = title,
                 soal = null,
