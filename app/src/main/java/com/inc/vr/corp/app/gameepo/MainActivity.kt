@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Integer.parseInt
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,12 +29,17 @@ class MainActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
         val id = getIntent().getStringExtra("id")!!.toInt()
+        val editormysharedx: SharedPreferences.Editor = this.getSharedPreferences(
+            "Game_Epo",
+            MODE_PRIVATE
+        ).edit()
+        editormysharedx.remove("betul")
+        editormysharedx.apply()
         getFood(id, "cat_id")
-        fab_selesai.hide()
         fab_selesai.setOnClickListener {
 
             myshared = getSharedPreferences("Game_Epo", MODE_PRIVATE)
-            val betul = myshared.getInt("betul",0)
+            val betul = parseInt(myshared.getString("betul","0"))
             val nilai = (betul*10)/total
             editormyshared =getSharedPreferences(
                 "Game_Epo",
@@ -85,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                         if (addedUser !== null) {
                             val heroesAdapter = SoalAdapter(addedUser)
                             rc_soal.apply {
-                                layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
+                                layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
                                 adapter = heroesAdapter
                             }
                             total = heroesAdapter.itemCount
@@ -94,9 +100,8 @@ class MainActivity : AppCompatActivity() {
                                     super.onScrollStateChanged(recyclerView, newState)
                                     if (!recyclerView.canScrollHorizontally(1)) {
                                         //Toast.makeText(this@YourActivity, "Last", Toast.LENGTH_LONG).show()
-                                        fab_selesai.show()
                                     }else{
-                                        fab_selesai.hide()
+
                                     }
                                 }
                             })
@@ -106,16 +111,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
         )
-
-        /*
-        apiService.loadBuku(bukuInfo) {
-            Timber.d(" hasil " + it.toString())
-            if (it != null) {
-
-            }
-        }
-
-         */
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

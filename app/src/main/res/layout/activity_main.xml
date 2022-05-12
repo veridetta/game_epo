@@ -42,17 +42,16 @@
                             android:clipToPadding="false"
                             android:visibility="visible"
                             android:id="@+id/rc_soal"/>
+
+                        <Button
+                            android:id="@+id/fab_selesai"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_12sdp"
+                            android:text="Selesai"/>
                     </LinearLayout>
                 </RelativeLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/fab_selesai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Selesai"
-        android:layout_margin="@dimen/_6sdp"
-        android:layout_gravity="bottom|right"/>
 </FrameLayout>

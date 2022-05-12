@@ -17,8 +17,8 @@ class ResultActivity : AppCompatActivity() {
         val actionBar = supportActionBar
         actionBar!!.hide()
         myshared = getSharedPreferences("Game_Epo", MODE_PRIVATE)
-        var betul = myshared.getInt("betul", 0)
-        var total = myshared.getInt("total", 0)
+        var betul = Integer.parseInt(myshared.getString("betul", "0"))
+            var total = myshared.getInt("total", 0)
         var nilai = myshared.getInt("nilai", 90)
         donut_progress.max = 100
         val komplit : MediaPlayer = MediaPlayer.create(this, R.raw.complete)
