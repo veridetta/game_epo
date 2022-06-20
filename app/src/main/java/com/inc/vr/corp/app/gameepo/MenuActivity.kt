@@ -46,7 +46,7 @@ class MenuActivity : AppCompatActivity() {
         getCat(ss, "name")
     }
     fun getCat(title: String, author: String) {
-        val apiService= RestApiService()
+        //val apiService= RestApiService()
         val bukuInfo = CatInfo(
             id = null,
             createdAt = null,
